@@ -38,4 +38,8 @@ defmodule ExJenkins.Crumb do
     |> Headers.add_authorization_header()
   end
 
+  defp process_request_options(options) do
+    options ++ Application.get_env(:ex_jenkins, :httpoison)
+  end
+
 end
