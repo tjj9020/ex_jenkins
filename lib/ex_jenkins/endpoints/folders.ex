@@ -76,6 +76,10 @@ defmodule ExJenkins.Folders do
     ExJenkins.base_url <> endpoint
   end
 
+  defp process_request_options(options) do
+    options ++ Application.get_env(:ex_jenkins, :httpoison)
+  end
+
   defp rest_of_url do
     "&mode=com.cloudbees.hudson.plugins.folder.Folder&from=&json=%7B%22name%22%3A%22FolderName%22%2C%22mode%22%3A%22com.cloudbees.hudson.plugins.folder.Folder%22%2C%22from%22%3A%22%22%2C%22Submit%22%3A%22OK%22%7D&Submit=OK"
   end
